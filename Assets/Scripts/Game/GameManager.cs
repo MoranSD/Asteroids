@@ -6,13 +6,6 @@ using Data;
 
 public class GameManager : Singleton<GameManager>
 {
-    /*
-     * инициализация всего дерьма
-     * запуск компонентов геймплея
-     * обработка смерти игрока
-     * перезапуск игры
-     */
-
     [field: SerializeField] public GameData GameData { get; private set; }
 
     public ObjectPool<Bullet> BulletPool;
@@ -29,14 +22,15 @@ public class GameManager : Singleton<GameManager>
         EnemyPool = new ObjectPool<Enemy>(10, _enemyPrefab);
 
         Player.Instance.OnDeadEvent += OnPlayerDead;
-    }
-    private void OnDisable()
-    {
-        Player.Instance.OnDeadEvent -= OnPlayerDead;
+
+        EnemySpawner.Instance.Begin();
     }
     private void OnPlayerDead()
     {
-        //clear all pools
+        BulletPool.KillAll();
+        EnemyPool.KillAll();
+
+        EnemySpawner.Instance.ResetSpawn();
 
         Player.Instance.transform.position = Vector3.zero;
         Player.Instance.Revive();

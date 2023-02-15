@@ -19,3 +19,10 @@ MonoBehaviour:
     Damage: 3
     Speed: 20
     LifeTime: 8
+  <EnemyData>k__BackingField:
+    Health: 5
+    FireRate: 5
+    MoveSpeed: 5
+    FollowRange: 6
+  <SpawnerData>k__BackingField:
+    SpawnRate: 6

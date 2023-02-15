@@ -43,6 +43,14 @@ namespace Tools
             obj.OnKill();
             ActiveCount--;
         }
+        public void KillAll()
+        {
+            for (int i = 0; i < _pool.Count; i++)
+                if (_pool[i].gameObject.activeInHierarchy)
+                    _pool[i].OnKill();
+
+            ActiveCount = 0;
+        }
         private void InitPool()
         {
             for (int i = 0; i < Size; i++)

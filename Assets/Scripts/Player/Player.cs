@@ -38,6 +38,12 @@ namespace PlayerSystem
         {
             gameObject.SetActive(true);
         }
+        protected override void OnDestroy()
+        {
+            OnDeadEvent = null;
+
+            base.OnDestroy();
+        }
         private void OnDead()
         {
             gameObject.SetActive(false);

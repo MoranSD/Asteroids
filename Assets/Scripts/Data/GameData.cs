@@ -8,5 +8,6 @@ namespace Data
         [field: SerializeField] public PlayerMovementData PlayerMovementData { get; private set; }
         [field: SerializeField] public BulletData BulletData { get; private set; }
         [field: SerializeField] public EnemyData EnemyData { get; private set; }
+        [field: SerializeField] public SpawnerData SpawnerData { get; private set; }
     }
 }

@@ -14,9 +14,9 @@ namespace PlayerSystem
         private float _lifeTime;
         Coroutine _lifeTimeProcess;
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(collision.transform.TryGetComponent(out IDamageable damageable))
+            if (collision.TryGetComponent(out IDamageable damageable))
             {
                 damageable.ApplyDamage(_damage);
                 GameManager.Instance.BulletPool.ReturnToThePool(this);

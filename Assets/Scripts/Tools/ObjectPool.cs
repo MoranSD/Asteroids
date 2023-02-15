@@ -27,7 +27,7 @@ namespace Tools
             if (ActiveCount == Size)
             {
                 Size++;
-                obj = AddObjectInPool();
+                obj = AddNewObjectInPool();
             }
             else
             {
@@ -54,11 +54,12 @@ namespace Tools
         private void InitPool()
         {
             for (int i = 0; i < Size; i++)
-                AddObjectInPool().Init();
+                AddNewObjectInPool();
         }
-        private T AddObjectInPool()
+        private T AddNewObjectInPool()
         {
             T obj = Object.Instantiate(Prefab);
+            obj.Init();
             obj.gameObject.SetActive(false);
 
             _pool.Add(obj);

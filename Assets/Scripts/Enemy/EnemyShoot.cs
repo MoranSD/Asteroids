@@ -11,7 +11,7 @@ namespace EnemySystem
         public float FireRate { get; set; }
         public float NextAttackTime { get; set; }
 
-        private const float distanceBetweenEnemyAndBullet = 0.3f;
+        private const float distanceBetweenEnemyAndBullet = 0.5f;
 
         private void Update()
         {
@@ -26,7 +26,7 @@ namespace EnemySystem
                     Bullet bullet = GameManager.Instance.BulletPool.SpawnObject();
 
                     _spawnPoint.up = directionToTarget.normalized;
-                    _spawnPoint.localPosition = directionToTarget.normalized * distanceBetweenEnemyAndBullet;
+                    _spawnPoint.position = (Vector2)transform.position + (directionToTarget.normalized * distanceBetweenEnemyAndBullet);
                     bullet.Shoot(_spawnPoint);
                 }
             }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b0226b8b7174e41ae55ea45e218f5c, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  <PlayerMovementData>k__BackingField:
-    MoveSpeed: 20
+  <PlayerData>k__BackingField:
+    Health: 10
+    MoveSpeed: 25
     TurnSpeed: 300
   <BulletData>k__BackingField:
     Damage: 3
@@ -21,8 +22,8 @@ MonoBehaviour:
     LifeTime: 8
   <EnemyData>k__BackingField:
     Health: 5
-    FireRate: 5
-    MoveSpeed: 5
-    FollowRange: 6
+    FireRate: 2
+    MoveSpeed: 3
+    FollowRange: 3
   <SpawnerData>k__BackingField:
     SpawnRate: 6

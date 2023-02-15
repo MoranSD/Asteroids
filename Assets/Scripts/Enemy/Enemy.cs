@@ -34,9 +34,7 @@ namespace EnemySystem
             _movement.MoveSpeed = GameManager.Instance.GameData.EnemyData.MoveSpeed;
             _movement.FollowRange = GameManager.Instance.GameData.EnemyData.FollowRange;
 
-            _shoot.FireRate = GameManager.Instance.GameData.EnemyData.FireRate;
             _shoot.AttackRange = GameManager.Instance.GameData.EnemyData.FollowRange;
-            _shoot.NextAttackTime = 0;
         }
 
         public void OnKill()
@@ -48,7 +46,7 @@ namespace EnemySystem
         {
             gameObject.SetActive(true);
             _health = GameManager.Instance.GameData.EnemyData.Health;
-            _shoot.NextAttackTime = 0;
+            _shoot.NextAttackTime = _shoot.FireRate;
         }
         private void OnDead()
         {

@@ -12,6 +12,7 @@ namespace EnemySystem
         private void Start()
         {
             _spawnRate = GameManager.Instance.GameData.SpawnerData.SpawnRate;
+            _currentSpawnTime = _spawnRate;
         }
         private void Update()
         {

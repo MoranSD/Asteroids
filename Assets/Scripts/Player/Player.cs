@@ -9,7 +9,7 @@ namespace PlayerSystem
     {
         public event System.Action OnDeadEvent;
 
-        [SerializeField] private float _health;
+        private float _health;
         public float Health => _health;
 
         private PlayerMovement _movement;
@@ -20,8 +20,9 @@ namespace PlayerSystem
             _movement = GetComponent<PlayerMovement>();
             _shoot = GetComponent<PlayerShoot>();
 
-            _movement.MoveSpeed = GameManager.Instance.GameData.PlayerMovementData.MoveSpeed;
-            _movement.TurnSpeed = GameManager.Instance.GameData.PlayerMovementData.TurnSpeed;
+            _health = GameManager.Instance.GameData.PlayerData.Health;
+            _movement.MoveSpeed = GameManager.Instance.GameData.PlayerData.MoveSpeed;
+            _movement.TurnSpeed = GameManager.Instance.GameData.PlayerData.TurnSpeed;
         }
 
         public void ApplyDamage(float value)
@@ -37,6 +38,7 @@ namespace PlayerSystem
         public void Revive()
         {
             gameObject.SetActive(true);
+            _health = GameManager.Instance.GameData.PlayerData.Health;
         }
         protected override void OnDestroy()
         {
